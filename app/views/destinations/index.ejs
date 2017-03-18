@@ -1,0 +1,37 @@
+<link rel="stylesheet" type="text/css" href="/css/testimonial.css">
+<div class="container">
+	<div class="row">
+		<h2>Destinations Details</h2>
+	</div>
+</div>
+<div class="container">
+    <div class="row">
+		<% for (var destination of destinations) {%>
+			<div class="col-sm-6 col-md-4">
+			    <div class="thumbnail">
+				    <img src="<%= destination['large_image'] %>" alt="" />
+			    	<div class="caption">
+			        	<h3><%= destination["name"] %></h3>
+			        	<h3>
+			        		<a href="/destinations/<%= destination["id"] %>/testimonials">
+			        			Testimonials
+			        		</a> | 
+			        		<a href="/destinations/<%= destination["id"] %>/packages">
+			        			Packages
+			        		</a>
+			        	</h3>
+			        	<p><% destination["user_location"] %></p>
+			        	<p>
+				        	<strong>Min Budget :</strong>
+				        	<span><%= destination["min_budget"] %></span>
+			        	</p>
+			        	<p>
+				        	<strong>Max Budget :</strong>
+				        	<span><%= destination["max_budget"] %></span>
+				        </p>
+			      	</div>
+			    </div>
+			</div>
+		<% }%>
+	</div>
+</div>

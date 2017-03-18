@@ -1,0 +1,31 @@
+<link rel="stylesheet" type="text/css" href="/css/testimonial.css">
+<div class="container">
+	<div class="row">
+		<h2><%= testimonials[0]['title']%> Testimonials</h2>
+	</div>
+</div>
+<div class="container">
+    <div class="row">
+		<% for (var testimonial of testimonials) {%>
+			<div class="col-sm-6">
+	            <div id="tb-testimonial" class="testimonial testimonial-default-filled">
+	                <div class="testimonial-section">
+	                    <%=testimonial["testimonial_body"] %>
+	            	</div>
+	                <div class="testimonial-desc">
+	                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
+	                    <div class="testimonial-writer">
+	                    	<div class="testimonial-writer-name">
+	                    		<%= testimonial['author'] %>
+	                    	</div>
+<!-- 	                    	<div class="testimonial-writer-designation">Front End Developer</div>
+ -->	                    	<a href="#" class="testimonial-writer-company">
+	                    		<%= testimonial["user_location"] %>
+	                    	</a>
+	                    </div>
+	                </div>
+	            </div>   
+			</div>
+		<% }%>
+	</div>
+</div>
