@@ -20,4 +20,4 @@ router.get('/tt_logout', ttAPIController.tt_logout)
 router.get('/destinations', destinationsController.index);
 router.get('/destinations/:id/testimonials', destinationsController.testimonials);
 router.get('/destinations/:id/packages', destinationsController.packages);
-router.get('/tour_package/:base_url/:id', destinationsController.tour_package);
+router.get('/tour_package/:id/:base_url', destinationsController.tour_package);
