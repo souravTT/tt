@@ -29,8 +29,9 @@ function github_profile(req, res, next){
 
 function get_url_data(req, res, next){
 	tt_cookies = req.app.get('tt_cookies');
-	console.log(req.params)
-	options = api.request_api_setup('/api/v2/trip_types/all_destinations.json', '', tt_cookies)
+	console.log(req.query.path)
+	options = api.request_api_setup(req.query.path, '', tt_cookies)
+	console.log(options)
 	request.get(options, function(error, response, body){
 		res.json(body);	
 	})

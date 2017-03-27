@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" href="/css/testimonial.css">
+<div class="container">
+	<div class="row">
+		<h2><%= dest_name %> Packages</h2>
+	</div>
+</div>
+<div class="container">
+    <div class="row">
+		<% for (var tour_package of packages) {%>
+			<div class="col-sm-6 col-md-6">
+			    <div class="thumbnail">
+				    <img src="<%= tour_package['image_url'] %>" alt=""/>
+			    	<div class="caption" class="row">
+			    		<div class="col-sm-7 col-md-7">
+			        		<h5>
+			        			<a href="/tour_package/<%= tour_package['set_url'] %>/<%= tour_package['id'] %>"><%= tour_package["name"] %></a>
+			        		</h5>
+			        	</div>
+			        	<div class="col-sm-5 col-md-5">
+			        		<%= tour_package["days"] %> Days & <%= tour_package["nights"] %> Nights
+			        	</div>
+			        	<br><br>
+			        	<div class="col-sm-12 col-md-12">
+		        			<strong>Cities: </strong><%= tour_package["cities"] %>
+		        		</div>
+		        		<br><br>
+			    		<div class="col-sm-12 col-md-12">
+			        		<strong>Starting from</strong></br>
+				        	<span style="margin-left: 10px;">
+				        		<b>&#8377; <%= tour_package["price_total"] %></b> /<%= tour_package["mini_desc"]%>
+				        	</span>
+						</div>
+						<br><br>
+			      	</div>
+			    </div>
+			</div>
+		<% }%>
+	</div>
+</div>

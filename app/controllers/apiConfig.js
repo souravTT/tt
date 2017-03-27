@@ -5,7 +5,7 @@ module.exports = {
 
 
 // Configure API Request
-function request_api_setup(path, params='', cookies = ''){
+function request_api_setup(path, params='', cookies = '', query_string = ''){
 	var options = {
 		url: process.env.TT_URI+path,
 		headers: {
@@ -19,9 +19,13 @@ function request_api_setup(path, params='', cookies = ''){
 	}
 	if (cookies){
 		options['headers']['Cookie'] = cookies;
-		options['url'] = options['url']+'?security_auth_token='+process.env.TT_SECURITY_TOKEN
+		options['url'] = options['url']+'?security_auth_token='+process.env.TT_SECURITY_TOKEN;
+		if (query_string){
+			options['url'] = options['url'] + query_string;
+		}
 		options['headers']['User-Agent'] = 'TravelTriangle'
 	}
+	console.log(options)
 	return options;
 }
 

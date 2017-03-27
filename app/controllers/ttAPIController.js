@@ -26,10 +26,6 @@ function tt_login(req, res, next){
 		if (body['error']){
 			res.render('tt_api/sign_in', {error: body['error']});
 		}else{
-			current_user = body['current_user']
-			console.log(current_user)
-			res.cookie('current_user', current_user)
-			console.log(req.session.current_user)
 			cookies = api.response_cookies(response)
 			res.locals.success = "Successfully Authenticated From TravelTriangle"
 			req.app.set('tt_cookies', cookies)	

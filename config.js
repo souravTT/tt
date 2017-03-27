@@ -1,7 +1,11 @@
 // Enviourment variables
 require('dotenv').config();
 
+// Logger loading...
+var logger = require('./config/logger')
 // dependency library
+logger.info("configuring express....")
+
 const express = require('express')
 const path = require('path')
 const ejsLayouts = require('express-ejs-layouts')
@@ -33,7 +37,7 @@ app.use(session({
 	cookie: { secure: true }
 }))
 // for logger
-app.use(morgan('tiny'))
+app.use(morgan('combined', logger.stream))
 
 // view engine setup
 app.use(express.static(path.join(__dirname, 'public')));
@@ -43,12 +47,11 @@ app.use(ejsLayouts);
 app.set('layout', 'layouts/app');
 
 
-//Middleware
+// Middleware
 app.use(function(req, res, next){
-	res.locals.xxxxx = "some content";
-	console.log(req.cookie)
-	console.log(req.params)
-	next()
+	date = new Date()
+	// logger.info(date.toISOString() +"   "+ req.url + "  Respose STATUS   "+ res.statusCode);
+	next();
 })
 
 
@@ -57,5 +60,5 @@ var routes = require('./config/routes');
 app.use(routes);
 
 app.listen(app.get('port'), () => {
-	console.log('Server running at port '+ app.get('port'))
+	logger.info('Server running at port '+ app.get('port'));
 })

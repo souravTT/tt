@@ -1,0 +1,53 @@
+<link rel="stylesheet" type="text/css" href="/css/testimonial.css">
+<div class="container">
+	<div class="row">
+		<h2><%= packages['total_entries'] %> Packages</h2>
+	</div>
+</div>
+<div class="container">
+    <div class="row">
+		<% for (var quote of packages['quotes']) {%>
+			<div class="col-sm-9  main">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h3>hello</h3>
+			      <p style="bottom: 10px;float: right; margin-right: 20px;position: relative; ">
+			        Posted By: Sourav Bhadani 
+			      </p>
+			    </div>
+			    <div class="panel-body">
+			      <p>This is a test blog for my friends</p>
+
+			    </div>
+			     <div class="panel-footer">
+			        <a href="/blogs/hello-what/edit">Edit</a> |
+			        <a href="https://myphotoshare.herokuapp.com/blogs/new">Back</a>
+			        <span class="pull-right">
+			          Posted on: Mar 18 , 2017
+			        </span>
+			    </div>
+			  </div>
+			</div>
+
+
+			<div class="col-sm-6">
+	            <div id="tb-testimonial" class="testimonial testimonial-default-filled">
+	                <div class="testimonial-section">
+	                    <%=quote["included"] %>
+	            	</div>
+	                <div class="testimonial-desc">
+	                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
+	                    <div class="testimonial-writer">
+	                    	<div class="testimonial-writer-name">
+	                    		<%= quote['currency'] %> <%= quote['price'] %>
+	                    	</div>
+	                    	<a href="#" class="testimonial-writer-company">
+	                    		<%= quote["days"] %>
+	                    	</a>
+	                    </div>
+	                </div>
+	            </div>   
+			</div>
+		<% }%>
+	</div>
+</div>
